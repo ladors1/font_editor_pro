@@ -36,7 +36,7 @@ jobs:
         run: flutter clean
 
       - name: Build Release APK
-        run: flutter build apk --release --split-per-abi --no-tree-shake-icons
+        run: flutter build apk --release --split-per-abi --no-tree-shake-icons --verbose
 
 
       - name: Upload APK Artifacts
