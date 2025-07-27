@@ -135,4 +135,4 @@ flutter:
         - asset: assets/fonts/Mada-VariableFont_wght.ttf
     - family: Marhey
       fonts:
-        - asset: assets/fonts/Marhey-VariableFont_w
+        - asset: assets/fonts/Marhey-VariableFont_wght.ttf
