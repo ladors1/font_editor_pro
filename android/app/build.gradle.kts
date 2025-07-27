@@ -6,6 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.font_editor_pro"
+    // استفاده از compileSdk 34 که با AGP 8.x سازگار است
     compileSdk = 34
 
     defaultConfig {
@@ -27,7 +28,8 @@ android {
 
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = false // برای جلوگیری از مشکلات احتمالی، فعلا غیرفعال می‌کنیم
+            // برای سادگی و جلوگیری از خطاهای احتمالی، بهینه‌سازی کد را غیرفعال می‌کنیم
+            isMinifyEnabled = false
             signingConfig = signingConfigs.getByName("debug")
         }
     }
