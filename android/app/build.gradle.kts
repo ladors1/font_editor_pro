@@ -30,6 +30,7 @@ android {
         getByName("release") {
             // برای سادگی و جلوگیری از خطاهای احتمالی، بهینه‌سازی کد را غیرفعال می‌کنیم
             isMinifyEnabled = false
+            isShrinkResources = false 
             signingConfig = signingConfigs.getByName("debug")
         }
     }
