@@ -63,9 +63,6 @@ flutter:
     - family: BalooBhaijaan2
       fonts:
         - asset: assets/fonts/BalooBhaijaan2-VariableFont_wght.ttf
-    - family: Benne
-      fonts:
-        - asset: assets/fonts/Benne-Regular.ttf
     - family: Cairo
       fonts:
         - asset: assets/fonts/Cairo-VariableFont_wght.ttf
