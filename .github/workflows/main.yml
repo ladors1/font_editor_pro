@@ -3,54 +3,45 @@ name: Build Flutter APK
 
 # تعریف رویدادهایی که این گردش کار را فعال می‌کنند
 on:
-  # هر بار که کدی به شاخه main پوش شود، این گردش کار اجرا می‌شود
   push:
     branches: [ "main" ]
-  # همچنین به صورت دستی هم می‌توان آن را اجرا کرد (از طریق تب Actions)
   workflow_dispatch:
 
 # تعریف کارهایی که باید انجام شوند
 jobs:
-  # تنها کار ما در اینجا، بیلد کردن اپلیکیشن است
   build:
-    # این کار روی یک ماشین مجازی با آخرین نسخه اوبونتو اجرا می‌شود
     runs-on: ubuntu-latest
 
-    # مراحل انجام کار به ترتیب
     steps:
       # مرحله ۱: دانلود کردن سورس کد پروژه شما از ریپازیتوری
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # مرحله ۲: نصب Java Development Kit (JDK) که برای بیلد اندروید ضروری است
+      # مرحله ۲: نصب Java Development Kit (JDK)
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
-          distribution: 'zulu' # یک توزیع معتبر از جاوا
+          distribution: 'zulu'
           java-version: '12.x'
           cache: 'gradle'
 
-      # مرحله ۳: نصب Flutter SDK در ماشین مجازی
+      # مرحله ۳: نصب Flutter SDK
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: 'stable' # استفاده از آخرین نسخه پایدار فلاتر
+          channel: 'stable'
 
-      # مرحله ۴: دانلود تمام پکیج‌های تعریف شده در pubspec.yaml
+      # مرحله ۴: دانلود تمام پکیج‌ها
       - name: Get Flutter dependencies
         run: flutter pub get
 
-      # مرحله ۵: ساخت فایل‌های APK به صورت جدا برای هر معماری پردازنده
-      # این بهترین روش برای انتشار در گوگل پلی است چون حجم هر APK کمتر می‌شود
+      # مرحله ۵: ساخت فایل‌های APK
       - name: Build release APK
         run: flutter build apk --release --split-per-abi
 
-      # مرحله ۶: آپلود کردن فایل‌های APK ساخته شده به عنوان یک "آرتیفکت"
-      # این کار باعث می‌شود فایل‌های APK برای دانلود در دسترس قرار بگیرند
+      # مرحله ۶: آپلود کردن فایل‌های APK (با نسخه اصلاح شده)
       - name: Upload APK artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4  # <--- اینجا تغییر اصلی است! از v3 به v4 آپدیت شد
         with:
-          # نام پکیج دانلودی شما
           name: release-apks
-          # مسیری که فایل‌های APK در آن ساخته شده‌اند
           path: build/app/outputs/flutter-apk/*.apk
