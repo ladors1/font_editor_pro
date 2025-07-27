@@ -24,11 +24,12 @@ jobs:
           distribution: 'temurin'
           java-version: '17' # <--- این خط حیاتی است و مشکل را حل می‌کند
 
-      # مرحله ۳: نصب فلاتر
-      # مهم: این مرحله باید *بعد* از نصب جاوا باشد
+            # مرحله ۳: نصب فلاتر
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
+          # با تثبیت نسخه فلاتر، از بروز خطاهای ناشی از آپدیت‌های ناگهانی جلوگیری می‌کنیم
+          flutter-version: '3.19.6' # <--- این خط حیاتی اضافه شده است
           channel: 'stable'
           cache: true
 
