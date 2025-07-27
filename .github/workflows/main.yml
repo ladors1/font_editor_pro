@@ -1,7 +1,5 @@
-# نام گردش کار
-name: Build Flutter APK & Release
+name: Build Flutter APK
 
-# رویدادهای فعال‌ساز
 on:
   push:
     branches: [ "main" ]
@@ -12,37 +10,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # مرحله ۱: دانلود سورس کد
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # مرحله ۲: نصب جاوا (نسخه ۱۷ که برای اندروید مدرن ضروری است)
-      # این بخش مستقیماً خطای شما را برطرف می‌کند
       - name: Setup Java JDK
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '17' # <--- این خط حیاتی است و مشکل را حل می‌کند
+          java-version: '17'
 
-            # مرحله ۳: نصب فلاتر
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           # با تثبیت نسخه فلاتر، از بروز خطاهای ناشی از آپدیت‌های ناگهانی جلوگیری می‌کنیم
-          flutter-version: '3.19.6' # <--- این خط حیاتی اضافه شده است
+          flutter-version: '3.19.6'
           channel: 'stable'
           cache: true
 
-      # مرحله ۴: دانلود پکیج‌های دارت و فلاتر
       - name: Install Dependencies
         run: flutter pub get
 
-      # مرحله ۵: ساخت فایل‌های APK
-      # این مرحله اکنون با جاوا ۱۷ اجرا خواهد شد
       - name: Build Release APK
         run: flutter build apk --release --split-per-abi
 
-      # مرحله ۶: آپلود فایل‌های APK
       - name: Upload APK Artifacts
         uses: actions/upload-artifact@v4
         with:
