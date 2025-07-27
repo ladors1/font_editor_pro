@@ -4,7 +4,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:font_editor_pro/utils/fonts.dart';
-import 'package:image_gallery_saver/image_gallery_saver.dart';
+import 'package:gal/gal.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:screenshot/screenshot.dart';
 
@@ -29,31 +29,36 @@ class _EditorScreenState extends State<EditorScreen> {
   FontStyle _fontStyle = FontStyle.normal;
   List<Shadow> _textShadows = [];
 
-  // تابع برای ذخیره تصویر
-  Future<void> _saveImage() async {
-    var status = await Permission.storage.request();
-    if (status.isGranted) {
-      final Uint8List? image = await _screenshotController.capture(
-        pixelRatio: 2.0, // افزایش کیفیت خروجی
-      );
-      if (image != null && mounted) {
-        final result = await ImageGallerySaver.saveImage(image, name: "font_design_${DateTime.now().millisecondsSinceEpoch}");
-        if (result['isSuccess']) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('تصویر با موفقیت در گالری ذخیره شد!')),
-          );
-        } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('خطا در ذخیره تصویر.')),
-          );
-        }
-      }
-    } else if (mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('برای ذخیره تصویر به دسترسی نیاز است.')),
-      );
+  // تابع برای ذخیره تصویر (با استفاده از پکیج مدرن gal)
+Future<void> _saveImage() async {
+  // ابتدا اجازه دسترسی را چک می‌کنیم
+  final bool hasAccess = await Gal.hasAccess();
+  if (!hasAccess) {
+    // اگر دسترسی نداشتیم، درخواست می‌کنیم
+    final bool permissionGranted = await Gal.requestAccess();
+    if (!permissionGranted) {
+      if (mounted) ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('برای ذخیره به دسترسی نیاز است.')));
+      return;
     }
   }
+
+  try {
+    // گرفتن اسکرین‌شات به صورت بایت
+    final Uint8List? imageBytes = await _screenshotController.capture(pixelRatio: 2.0);
+    
+    if (imageBytes != null && mounted) {
+      // ذخیره کردن بایت‌ها در گالری
+      await Gal.putImageBytes(imageBytes, name: "font_design_${DateTime.now().millisecondsSinceEpoch}");
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('تصویر با موفقیت در گالری ذخیره شد!')),
+      );
+    }
+  } catch (e) {
+    if (mounted) ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('خطا در ذخیره تصویر: $e')),
+    );
+  }
+}
 
   // تابع برای نمایش انتخاب‌گر رنگ
   void _showColorPicker({required bool forText}) {
