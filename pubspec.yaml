@@ -30,13 +30,12 @@ flutter:
     - assets/fonts/
     - assets/backgrounds/
 
-  # --- تعریف کامل ۸۰ فونت شما ---
-  # این بخش با دقت بر اساس فایل‌های شما تنظیم شده است.
+  # --- تعریف کامل ۸۰ فونت شما (نسخه اصلاح شده) ---
   fonts:
     - family: Alexandria
       fonts:
         - asset: assets/fonts/Alexandria-VariableFont_wght.ttf
-          weight: 100 900
+          # برای فونت متغیر، خط weight حذف می‌شود
     - family: Amiri
       fonts:
         - asset: assets/fonts/Amiri-Regular.ttf
@@ -64,44 +63,34 @@ flutter:
     - family: BalooBhaijaan2
       fonts:
         - asset: assets/fonts/BalooBhaijaan2-VariableFont_wght.ttf
-          weight: 400 800
     - family: Benne
       fonts:
         - asset: assets/fonts/Benne-Regular.ttf
     - family: Cairo
       fonts:
         - asset: assets/fonts/Cairo-VariableFont_wght.ttf
-          weight: 200 1000
     - family: CascadiaCode
       fonts:
         - asset: assets/fonts/CascadiaCode-Italic-VariableFont_wght.ttf
           style: italic
-          weight: 200 700
         - asset: assets/fonts/CascadiaCode-VariableFont_wght.ttf
-          weight: 200 700
     - family: CascadiaMono
       fonts:
         - asset: assets/fonts/CascadiaMono-Italic-VariableFont_wght.ttf
           style: italic
-          weight: 200 700
         - asset: assets/fonts/CascadiaMono-VariableFont_wght.ttf
-          weight: 200 700
     - family: Changa
       fonts:
         - asset: assets/fonts/Changa-VariableFont_wght.ttf
-          weight: 200 800
     - family: ElMessiri
       fonts:
         - asset: assets/fonts/ElMessiri-VariableFont_wght.ttf
-          weight: 400 700
     - family: Fustat
       fonts:
         - asset: assets/fonts/Fustat-VariableFont_wght.ttf
-          weight: 200 800
     - family: Handjet
       fonts:
         - asset: assets/fonts/Handjet-VariableFont_ELGR,ELSH,wght.ttf
-          weight: 100 900
     - family: Harmattan
       fonts:
         - asset: assets/fonts/Harmattan-Regular.ttf
@@ -147,26 +136,21 @@ flutter:
     - family: Mada
       fonts:
         - asset: assets/fonts/Mada-VariableFont_wght.ttf
-          weight: 200 900
     - family: Marhey
       fonts:
         - asset: assets/fonts/Marhey-VariableFont_wght.ttf
-          weight: 300 900
     - family: NotoKufiArabic
       fonts:
         - asset: assets/fonts/NotoKufiArabic-VariableFont_wght.ttf
-          weight: 100 900
     - family: NotoSansArabic
       fonts:
         - asset: assets/fonts/NotoSansArabic-VariableFont_wght.ttf
-          weight: 100 900
     - family: Oi
       fonts:
         - asset: assets/fonts/Oi-Regular.ttf
     - family: PlaypenSans
       fonts:
         - asset: assets/fonts/PlaypenSans-VariableFont_wght.ttf
-          weight: 100 900
     - family: Qahiri
       fonts:
         - asset: assets/fonts/Qahiri-Regular.ttf
@@ -174,20 +158,16 @@ flutter:
       fonts:
         - asset: assets/fonts/ReemKufi-Regular.ttf
         - asset: assets/fonts/ReemKufi-VariableFont_wght.ttf
-          weight: 400 700
     - family: ReemKufiFun
       fonts:
         - asset: assets/fonts/ReemKufiFun-VariableFont_wght.ttf
-          weight: 400 700
     - family: ReemKufiInk
       fonts:
         - asset: assets/fonts/ReemKufiInk-Regular.ttf
     - family: Rubik
       fonts:
         - asset: assets/fonts/Rubik-VariableFont_wght.ttf
-          weight: 300 900
         - asset: assets/fonts/Rubik-Italic-VariableFont_wght.ttf
-          weight: 300 900
           style: italic
     - family: Ruwudu
       fonts:
@@ -223,7 +203,6 @@ flutter:
     - family: Vazirmatn
       fonts:
         - asset: assets/fonts/Vazirmatn-VariableFont_wght.ttf
-          weight: 100 900
     - family: Vibur
       fonts:
         - asset: assets/fonts/Vibur-Regular.ttf
