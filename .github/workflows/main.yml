@@ -1,47 +1,49 @@
-# نام این گردش کار (Workflow) که در تب Actions گیت‌هاب نمایش داده می‌شود
-name: Build Flutter APK
+# نام گردش کار
+name: Build Flutter APK & Release
 
-# تعریف رویدادهایی که این گردش کار را فعال می‌کنند
+# رویدادهای فعال‌ساز
 on:
   push:
     branches: [ "main" ]
   workflow_dispatch:
 
-# تعریف کارهایی که باید انجام شوند
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # مرحله ۱: دانلود کردن سورس کد پروژه شما از ریپازیتوری
-      - name: Checkout code
-        uses: actions/checkout@v3
+      # مرحله ۱: دانلود سورس کد
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      # مرحله ۲: نصب Java Development Kit (JDK)
-      - name: Setup Java
-        uses: actions/setup-java@v3
+      # مرحله ۲: نصب جاوا (نسخه ۱۷ که برای اندروید مدرن ضروری است)
+      # این بخش مستقیماً خطای شما را برطرف می‌کند
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4
         with:
-          distribution: 'zulu'
-          java-version: '12.x'
-          cache: 'gradle'
+          distribution: 'temurin'
+          java-version: '17' # <--- این خط حیاتی است و مشکل را حل می‌کند
 
-      # مرحله ۳: نصب Flutter SDK
+      # مرحله ۳: نصب فلاتر
+      # مهم: این مرحله باید *بعد* از نصب جاوا باشد
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
+          cache: true
 
-      # مرحله ۴: دانلود تمام پکیج‌ها
-      - name: Get Flutter dependencies
+      # مرحله ۴: دانلود پکیج‌های دارت و فلاتر
+      - name: Install Dependencies
         run: flutter pub get
 
       # مرحله ۵: ساخت فایل‌های APK
-      - name: Build release APK
+      # این مرحله اکنون با جاوا ۱۷ اجرا خواهد شد
+      - name: Build Release APK
         run: flutter build apk --release --split-per-abi
 
-      # مرحله ۶: آپلود کردن فایل‌های APK (با نسخه اصلاح شده)
-      - name: Upload APK artifacts
-        uses: actions/upload-artifact@v4  # <--- اینجا تغییر اصلی است! از v3 به v4 آپدیت شد
+      # مرحله ۶: آپلود فایل‌های APK
+      - name: Upload APK Artifacts
+        uses: actions/upload-artifact@v4
         with:
           name: release-apks
           path: build/app/outputs/flutter-apk/*.apk
