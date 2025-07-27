@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "com.example.font_editor_pro"
-    compileSdk = 35
+    compileSdk = 36
     
     defaultConfig {
         applicationId = "com.example.font_editor_pro"
         minSdk = 21
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
     }
