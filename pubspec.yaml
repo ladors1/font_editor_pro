@@ -1,0 +1,242 @@
+name: font_editor_pro
+description: A Professional Font Editor for Instagram Stories.
+publish_to: 'none' 
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # پکیج‌های حرفه‌ای پروژه
+  screenshot: ^2.1.0
+  flutter_colorpicker: ^1.0.3
+  image_gallery_saver: ^2.0.3
+  permission_handler: ^11.3.1
+
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/fonts/
+    - assets/backgrounds/
+
+  # --- تعریف کامل ۸۰ فونت شما ---
+  # این بخش با دقت بر اساس فایل‌های شما تنظیم شده است.
+  fonts:
+    - family: Alexandria
+      fonts:
+        - asset: assets/fonts/Alexandria-VariableFont_wght.ttf
+          weight: 100 900
+    - family: Amiri
+      fonts:
+        - asset: assets/fonts/Amiri-Regular.ttf
+        - asset: assets/fonts/Amiri-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Amiri-Italic.ttf
+          style: italic
+        - asset: assets/fonts/Amiri-BoldItalic.ttf
+          weight: 700
+          style: italic
+    - family: AmiriQuran
+      fonts:
+        - asset: assets/fonts/AmiriQuran-Regular.ttf
+    - family: ArefRuqaa
+      fonts:
+        - asset: assets/fonts/ArefRuqaa-Regular.ttf
+        - asset: assets/fonts/ArefRuqaa-Bold.ttf
+          weight: 700
+    - family: ArefRuqaaInk
+      fonts:
+        - asset: assets/fonts/ArefRuqaaInk-Regular.ttf
+    - family: BadeenDisplay
+      fonts:
+        - asset: assets/fonts/BadeenDisplay-Regular.ttf
+    - family: BalooBhaijaan2
+      fonts:
+        - asset: assets/fonts/BalooBhaijaan2-VariableFont_wght.ttf
+          weight: 400 800
+    - family: Benne
+      fonts:
+        - asset: assets/fonts/Benne-Regular.ttf
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/Cairo-VariableFont_wght.ttf
+          weight: 200 1000
+    - family: CascadiaCode
+      fonts:
+        - asset: assets/fonts/CascadiaCode-Italic-VariableFont_wght.ttf
+          style: italic
+          weight: 200 700
+        - asset: assets/fonts/CascadiaCode-VariableFont_wght.ttf
+          weight: 200 700
+    - family: CascadiaMono
+      fonts:
+        - asset: assets/fonts/CascadiaMono-Italic-VariableFont_wght.ttf
+          style: italic
+          weight: 200 700
+        - asset: assets/fonts/CascadiaMono-VariableFont_wght.ttf
+          weight: 200 700
+    - family: Changa
+      fonts:
+        - asset: assets/fonts/Changa-VariableFont_wght.ttf
+          weight: 200 800
+    - family: ElMessiri
+      fonts:
+        - asset: assets/fonts/ElMessiri-VariableFont_wght.ttf
+          weight: 400 700
+    - family: Fustat
+      fonts:
+        - asset: assets/fonts/Fustat-VariableFont_wght.ttf
+          weight: 200 800
+    - family: Handjet
+      fonts:
+        - asset: assets/fonts/Handjet-VariableFont_ELGR,ELSH,wght.ttf
+          weight: 100 900
+    - family: Harmattan
+      fonts:
+        - asset: assets/fonts/Harmattan-Regular.ttf
+        - asset: assets/fonts/Harmattan-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Harmattan-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Harmattan-SemiBold.ttf
+          weight: 600
+    - family: IBMPSansArabic
+      fonts:
+        - asset: assets/fonts/IBMPlexSansArabic-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/IBMPlexSansArabic-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/IBMPlexSansArabic-Light.ttf
+          weight: 300
+        - asset: assets/fonts/IBMPlexSansArabic-Regular.ttf
+        - asset: assets/fonts/IBMPlexSansArabic-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/IBMPlexSansArabic-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/IBMPlexSansArabic-Bold.ttf
+          weight: 700
+    - family: Katibeh
+      fonts:
+        - asset: assets/fonts/Katibeh-Regular.ttf
+    - family: Lateef
+      fonts:
+        - asset: assets/fonts/Lateef-Regular.ttf
+        - asset: assets/fonts/Lateef-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Lateef-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Lateef-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Lateef-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Lateef-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Lateef-SemiBold.ttf
+          weight: 600
+    - family: Mada
+      fonts:
+        - asset: assets/fonts/Mada-VariableFont_wght.ttf
+          weight: 200 900
+    - family: Marhey
+      fonts:
+        - asset: assets/fonts/Marhey-VariableFont_wght.ttf
+          weight: 300 900
+    - family: NotoKufiArabic
+      fonts:
+        - asset: assets/fonts/NotoKufiArabic-VariableFont_wght.ttf
+          weight: 100 900
+    - family: NotoSansArabic
+      fonts:
+        - asset: assets/fonts/NotoSansArabic-VariableFont_wght.ttf
+          weight: 100 900
+    - family: Oi
+      fonts:
+        - asset: assets/fonts/Oi-Regular.ttf
+    - family: PlaypenSans
+      fonts:
+        - asset: assets/fonts/PlaypenSans-VariableFont_wght.ttf
+          weight: 100 900
+    - family: Qahiri
+      fonts:
+        - asset: assets/fonts/Qahiri-Regular.ttf
+    - family: ReemKufi
+      fonts:
+        - asset: assets/fonts/ReemKufi-Regular.ttf
+        - asset: assets/fonts/ReemKufi-VariableFont_wght.ttf
+          weight: 400 700
+    - family: ReemKufiFun
+      fonts:
+        - asset: assets/fonts/ReemKufiFun-VariableFont_wght.ttf
+          weight: 400 700
+    - family: ReemKufiInk
+      fonts:
+        - asset: assets/fonts/ReemKufiInk-Regular.ttf
+    - family: Rubik
+      fonts:
+        - asset: assets/fonts/Rubik-VariableFont_wght.ttf
+          weight: 300 900
+        - asset: assets/fonts/Rubik-Italic-VariableFont_wght.ttf
+          weight: 300 900
+          style: italic
+    - family: Ruwudu
+      fonts:
+        - asset: assets/fonts/Ruwudu-Regular.ttf
+        - asset: assets/fonts/Ruwudu-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Ruwudu-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Ruwudu-SemiBold.ttf
+          weight: 600
+    - family: ScheherazadeNew
+      fonts:
+        - asset: assets/fonts/ScheherazadeNew-Regular.ttf
+        - asset: assets/fonts/ScheherazadeNew-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/ScheherazadeNew-SemiBold.ttf
+          weight: 600
+    - family: Tajawal
+      fonts:
+        - asset: assets/fonts/Tajawal-Regular.ttf
+        - asset: assets/fonts/Tajawal-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Tajawal-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Tajawal-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Tajawal-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Tajawal-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Tajawal-Black.ttf
+          weight: 900
+    - family: Vazirmatn
+      fonts:
+        - asset: assets/fonts/Vazirmatn-VariableFont_wght.ttf
+          weight: 100 900
+    - family: Vibur
+      fonts:
+        - asset: assets/fonts/Vibur-Regular.ttf
+    - family: Zain
+      fonts:
+        - asset: assets/fonts/Zain-Regular.ttf
+        - asset: assets/fonts/Zain-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Zain-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Zain-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Zain-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Zain-Black.ttf
+          weight: 900
