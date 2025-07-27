@@ -65,7 +65,7 @@ flutter:
         - asset: assets/fonts/BalooBhaijaan2-VariableFont_wght.ttf
     - family: Cairo
       fonts:
-        - asset: assets/fonts/Cairo-VariableFont_wght.ttf
+        - asset: assets/fonts/Cairo-VariableFont_slnt,wght.ttf
     - family: CascadiaCode
       fonts:
         - asset: assets/fonts/CascadiaCode-Italic-VariableFont_wght.ttf
