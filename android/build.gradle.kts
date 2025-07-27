@@ -1,8 +1,8 @@
 plugins {
-    // از نسخه‌های پیش‌فرض و مدرن استفاده می‌کنیم
-    id("com.android.application") version "8.2.2" apply false
-    id("org.jetbrains.kotlin.android") version "1.9.10" apply false
-    id("dev.flutter.flutter-gradle-plugin") version "1.0.0" apply false
+    // نسخه‌ها حذف شده‌اند تا از نسخه پیش‌فرض محیط استفاده شود و تضاد حل شود
+    id("com.android.application") apply false
+    id("org.jetbrains.kotlin.android") apply false
+    id("dev.flutter.flutter-gradle-plugin") apply false
 }
 
 tasks.register("clean", Delete::class) {
