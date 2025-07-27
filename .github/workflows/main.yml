@@ -22,13 +22,15 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          # با تثبیت نسخه فلاتر، از بروز خطاهای ناشی از آپدیت‌های ناگهانی جلوگیری می‌کنیم
           flutter-version: '3.19.6'
           channel: 'stable'
           cache: true
 
       - name: Install Dependencies
         run: flutter pub get
+
+      - name: Check for Outdated Dependencies
+        run: flutter pub outdated
 
       - name: Build Release APK
         run: flutter build apk --release --split-per-abi
